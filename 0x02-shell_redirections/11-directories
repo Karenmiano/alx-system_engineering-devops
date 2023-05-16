@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -RdAx | wc -l
+ls -dx */ .*/ */*/ */.*/ | grep -v -E "\./|\.\./" | wc -l
