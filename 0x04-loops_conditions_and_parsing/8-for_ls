@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# displays current directory where only the part of the name
+# after the first dash is displayed 
+l=$(ls)
+for i in $l
+do
+	echo "$i" | cut -d '-' -f 2-
+done
