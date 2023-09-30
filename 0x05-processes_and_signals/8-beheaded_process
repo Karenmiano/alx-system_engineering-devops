@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# sends SIGKILL to SIGTERM ignoring program
+
+pkill -f -SIGKILL 7-highlander
