@@ -1,4 +1,14 @@
 # defining client ssh configuration file
-file { '/root/.ssh/school':
-  content => "Host *\n\tPasswordAuthentication no\n\tIdentifyFile ~/.ssh/school",
+include stdlib
+
+file_line { 'private_key _source':
+  ensure => present,
+  path => '/root/.ssh/school',
+  line => '  IdentityFile ~/.ssh/school',
+}
+
+file_line { 'no passwords':
+  ensure => present,
+  path => '/root/.ssh/school',
+  line => ' PasswordAuthentication no',
 }
