@@ -2,13 +2,15 @@
 include stdlib
 
 file_line { 'private_key _source':
-  ensure => present,
-  path => '/root/.ssh/school',
-  line => '  IdentityFile ~/.ssh/school',
+  ensure  => present,
+  path    => '/root/.ssh/config',
+  line    => '  IdentityFile ~/.ssh/school',
+  replace => true,
 }
 
 file_line { 'no passwords':
-  ensure => present,
-  path => '/root/.ssh/school',
-  line => ' PasswordAuthentication no',
+  ensure  => present,
+  path    => '/root/.ssh/config',
+  line    => '  PasswordAuthentication no',
+  replace => true,
 }
