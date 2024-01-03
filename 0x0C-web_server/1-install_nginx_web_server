@@ -3,8 +3,8 @@
 # configures it to listen at port 80
 # sets Hello World! as default page
 
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo "Hello World!" | tee /var/www/html/index.html
-service nginx start
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo service nginx start
