@@ -7,5 +7,5 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i 's/\s*server_name _;/&\n\trewrite ^\/redirect_me$ https:\/\/example.com permanent;/' /etc/nginx/sites-available/default
+sudo sed -i 's/\s*server_name _;/&\n\trewrite ^\/redirect_me\/$ https:\/\/example.com permanent;/' /etc/nginx/sites-available/default
 sudo service nginx start
