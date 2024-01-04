@@ -34,7 +34,6 @@ $config = @(EOF)
 
 	    server_name _;
         rewrite ^/redirect_me https://example.com permanent;
-        error_page 404 /custom_404.html;
 
 	    location / {
 		    try_files \$uri \$uri/ =404;
