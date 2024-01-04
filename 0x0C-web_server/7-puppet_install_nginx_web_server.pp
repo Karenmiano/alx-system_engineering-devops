@@ -33,7 +33,7 @@ $config = @(EOF)
 	    index index.html index.htm index.nginx-debian.html;
 
 	    server_name _;
-        rewrite ^/redirect_me.*$ https://example.com permanent;
+        rewrite ^/redirect_me https://example.com permanent;
         error_page 404 /custom_404.html;
 
 	    location / {
