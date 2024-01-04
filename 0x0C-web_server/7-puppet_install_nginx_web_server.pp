@@ -20,7 +20,7 @@ file { '/var/www/html/index.html':
 # Define 404 error page content
 file { '/var/www/html/custom_404.html':
     ensure  => 'file',
-    content => 'Ceci n'est pas une page',
+    content => 'Ceci n\'est pas une page',
 }
 
 # content for /etc/nginx/sites-available/default
