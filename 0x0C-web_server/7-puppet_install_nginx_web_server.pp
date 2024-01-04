@@ -36,7 +36,7 @@ $config = @(EOF)
         rewrite ^/redirect_me https://example.com permanent;
 
 	    location / {
-		    try_files \$uri \$uri/ =404;
+		    try_files $uri $uri/ =404;
 	    }
     }
     | EOF
