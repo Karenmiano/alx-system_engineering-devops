@@ -41,7 +41,7 @@ $config = @(EOF)
     }
     | EOF
 
-exec { 'change_config':
-    path    => '/usr/bin',
-    command => 'sudo sed -i "s/\s*server_name _;/&\n\trewrite ^\/redirect_me.*$ https:\/\/example.com permanent;\n\terror_page 404 \/custom_404.html;/" /etc/nginx/sites-available/default',
+file { '/etc/nginx/sites-available/default':
+    ensure  => 'file',
+    content => $config,
 }
