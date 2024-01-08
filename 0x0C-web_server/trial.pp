@@ -1,21 +1,6 @@
-$config = @(EOF)
-server {
-  listen 80 default_server;
-  listen [::]:80 default_server;
-
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-
-  server_name _;
-  rewrite ^/redirect_me https://example.com permanent;
-
-	location / {
-    try_files $uri $uri/ =404;
-  }
+file_line { 'aaaaa':
+  ensure => 'present',
+  path   => '/var/www/html/index.html',
+  line   => 'rewrite ^/redirect_me https://www.github.com/lewisthagichu permanent;',
 }
-EOF
 
-file { '/var/www/html/index.html':
-  ensure => 'file',
-  content => $config,
-}
