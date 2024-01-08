@@ -1,0 +1,1 @@
+Learning about Load Balancing, adding a new server and setting up a load balancer before my two servers.
