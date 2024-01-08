@@ -10,6 +10,7 @@ service { 'nginx':
     ensure  => 'running',
     require => Package['nginx'],
     notify  => File['/etc/nginx/sites-available/default'],
+    enable  => 'true',
 }
 
 # change nginx welcome page

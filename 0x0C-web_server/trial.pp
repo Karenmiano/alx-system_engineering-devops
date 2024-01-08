@@ -12,9 +12,10 @@ server {
 	location / {
     try_files $uri $uri/ =404;
   }
-}EOF
+}
+EOF
 
-file { '/var/www/html/trial':
+file { '/var/www/html/index.html':
   ensure => 'file',
   content => $config,
 }
