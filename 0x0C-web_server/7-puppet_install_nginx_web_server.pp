@@ -9,6 +9,7 @@ package { 'nginx':
 service { 'nginx':
     ensure  => 'running',
     require => Package['nginx'],
+    notify  => File['/etc/nginx/sites-available/default'],
 }
 
 # change nginx welcome page
@@ -25,21 +26,21 @@ file { '/var/www/html/custom_404.html':
 
 # content for /etc/nginx/sites-available/default
 $config = @(EOF)
-    server {
-	    listen 80 default_server;
-	    listen [::]:80 default_server;
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
-	    root /var/www/html;
-	    index index.html index.htm index.nginx-debian.html;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
 
-	    server_name _;
-        rewrite ^/redirect_me https://example.com permanent;
+	server_name _;
+    rewrite ^/redirect_me.*$ https://example.com permanent;
 
-	    location / {
-		    try_files $uri $uri/ =404;
-	    }
-    }
-    | EOF
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+EOF
 
 file { '/etc/nginx/sites-available/default':
     ensure  => 'file',
