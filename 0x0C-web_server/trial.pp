@@ -1,6 +1,11 @@
-file_line { 'aaaaa':
+$contenu = $facts['hostname']
+$lecontenu = @("EOF")
+Bonjour
+$contenu
+EOF
+file { 'aaaaa':
   ensure => 'present',
-  path   => '/var/www/html/index.html',
-  line   => 'rewrite ^/redirect_me https://www.github.com/lewisthagichu permanent;',
+  path   => '/home/karen/sasa',
+  content => $lecontenu,
 }
 

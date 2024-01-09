@@ -25,8 +25,9 @@ file { '/var/www/html/custom_404.html':
     content => 'Ceci n\'est pas une page',
 }
 
-# content for /etc/nginx/sites-available/default
-$config = @("EOF")
+# content for /etc/ngi
+$surely = $facts['hostname']
+$config = @("EOF" /$)
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
@@ -36,10 +37,12 @@ server {
 
 	server_name _;
     rewrite ^/redirect_me.*$ https://example.com permanent;
+    add_header X-Served-By "$surely";
     error_page 404 /custom_404.html;
 
+
 	location / {
-		try_files $uri $uri/ =404;
+		try_files \$uri \$uri/ =404;
 	}
 }
 EOF
