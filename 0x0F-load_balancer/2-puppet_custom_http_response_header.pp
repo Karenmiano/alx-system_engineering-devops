@@ -56,3 +56,7 @@ exec { 'allow_nginx_http':
   command     => '/usr/sbin/ufw allow Nginx\ HTTP',
   path        => '/usr/sbin',
 }
+
+exec { 'restart_nginx':
+  command     => '/usr/sbin/service nginx restart',
+}
