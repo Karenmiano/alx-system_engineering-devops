@@ -47,7 +47,7 @@ server {
 EOF
 
 file { '/etc/nginx/sites-available/default':
-    ensure  => 'file',
+    ensure  => 'present',
     content => $config,
 }
 
