@@ -9,7 +9,6 @@ package { 'nginx':
 service { 'nginx':
     ensure  => 'running',
     require => Package['nginx'],
-    notify  => File['/etc/nginx/sites-available/default'],
     enable  => 'true',
 }
 
@@ -25,7 +24,7 @@ file { '/var/www/html/custom_404.html':
     content => 'Ceci n\'est pas une page',
 }
 
-# content for /etc/ngi
+# content for /etc/nginx/
 $sysname = $facts['hostname']
 $config = @("EOF" /$)
 server {
@@ -59,4 +58,5 @@ exec { 'allow_nginx_http':
 
 exec { 'restart_nginx':
   command     => '/usr/sbin/service nginx restart',
+  notify      => File['/etc/nginx/sites-available/default'],
 }
