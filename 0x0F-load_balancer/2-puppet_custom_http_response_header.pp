@@ -26,10 +26,10 @@ file { '/var/www/html/custom_404.html':
 }
 
 # content for /etc/ngi
-$surely = $facts['hostname']
+$sysname = $facts['hostname']
 $config = @("EOF" /$)
 server {
-	listen 80 default_server;
+    listen 80 default_server;
 	listen [::]:80 default_server;
 
 	root /var/www/html;
@@ -37,7 +37,7 @@ server {
 
 	server_name _;
     rewrite ^/redirect_me.*$ https://example.com permanent;
-    add_header X-Served-By "$surely";
+    add_header X-Served-By "$sysname";
     error_page 404 /custom_404.html;
 
 
