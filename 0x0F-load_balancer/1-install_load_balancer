@@ -13,6 +13,6 @@ backend karenbuilds
         mode http
         balance roundrobin
         server web-01 54.144.142.198:80 check
-        server web-02 34.207.222.12:80 check
+        server web-02 54.172.80.140:80 check
 ADDTHIS
 sudo service haproxy restart

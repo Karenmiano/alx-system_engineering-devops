@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# gives formatted output for record type and ip address of sub-domains
+
+domain="$1"
+
+record_ip() {
+    find=("$@")
+    for sub in "${find[@]}"
+    do
+        type_ip=$(dig $sub.$domain | awk '/ANSWER SECTION/{getline; print $4, $5}')
+        arr=($type_ip)
+        echo The subdomain "$sub" is a "${arr[0]}" record and points to "${arr[1]}"
+    done
+}
+
+if [[ $# -eq 1 ]]
+then
+    args=("www" "lb-01" "web-01" "web-02")
+else
+    args=("$2")
+fi
+
+record_ip "${args[@]}"
