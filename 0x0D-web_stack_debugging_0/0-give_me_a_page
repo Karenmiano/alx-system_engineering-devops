@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# start apache and get it serving pages
+
+sudo service apache2 start
