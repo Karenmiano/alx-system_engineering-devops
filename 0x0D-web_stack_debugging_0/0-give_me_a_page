@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# start apache and get it serving pages
+# start apache and get it serving page
 
-echo "ServerName localhost" >> /etc/apache2.conf
 sudo service apache2 start
 
