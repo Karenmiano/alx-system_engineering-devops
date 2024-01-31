@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""retrieves data from the website https://jsonplaceholder.typicode.com
-using its exposed api, about a user and the tasks completed"""
+"""
+retrieves data from the website https://jsonplaceholder.typicode.com
+using its exposed api, about a user and the tasks completed
+"""
 
-import sys
 import requests
+import sys
 
 if __name__ == "__main__":
     url1 = f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}"
