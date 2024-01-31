@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-retrieves data from the website https://jsonplaceholder.typicode.com
-using its exposed api, about a user and the tasks completed.
-"""
+"""retrieves to-do list information for a given employee ID"""
 import requests
 import sys
 
