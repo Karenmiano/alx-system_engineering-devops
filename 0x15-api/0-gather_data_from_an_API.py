@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """
 retrieves data from the website https://jsonplaceholder.typicode.com
-using its exposed api, about a user and the tasks completed
+using its exposed api, about a user and the tasks completed.
 """
-
 import requests
 import sys
 
