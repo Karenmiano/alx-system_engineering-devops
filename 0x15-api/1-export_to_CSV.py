@@ -10,7 +10,7 @@ if __name__ == "__main__":
     url2 = f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}/todos"
     res1 = requests.get(url1)
     res2 = requests.get(url2)
-    employee = res1.json()['name']
+    employee = res1.json()['username']
     tasks = res2.json()
     userId = tasks[0]["userId"]
     filename = f'{userId}.csv'
