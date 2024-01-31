@@ -15,7 +15,7 @@ if __name__ == "__main__":
     for task in tasks:
         if task['completed'] is True:
             done += 1
-    print(f'Employee {employee} is done with tasks ({done}/{num_tasks}):')
+    print(f'Employee {employee} is done with tasks({done}/{num_tasks}):')
     for task in tasks:
         if task['completed'] is True:
             title = task['title']
