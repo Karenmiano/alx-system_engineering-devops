@@ -1,1 +1,1 @@
-API - RESTful APIs
+API - RESTful APIs: receiving services through http requests
