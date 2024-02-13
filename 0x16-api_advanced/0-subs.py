@@ -10,8 +10,6 @@ def number_of_subscribers(subreddit):
     """
     Returns the number of subscribers for a given subreddit
     """
-    if subreddit is None or not isinstance(subreddit, str):
-        return 0
     url = f'https://www.reddit.com/r/{subreddit}/about.json'
     headers = {'User-Agent': 'python:subscriber.counter by Karen_miano'}
     response = requests.get(url, headers=headers, allow_redirects=False)
