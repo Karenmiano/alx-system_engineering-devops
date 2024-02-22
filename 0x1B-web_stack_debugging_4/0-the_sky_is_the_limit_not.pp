@@ -3,3 +3,8 @@ exec {'change-limit':
     path    => '/bin',
     command => 'sed -i "s/ULIMIT=\"-n [0-9]\+\"/ULIMIT=\"-n 10000\"/g" /etc/default/nginx',
 }
+
+exec {'restart':
+    path    => '/usr/sbin/service',
+    command => 'service nginx restart',
+}
